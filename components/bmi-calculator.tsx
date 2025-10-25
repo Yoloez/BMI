@@ -1,53 +1,53 @@
-"use client"
+"use client";
 
-import { useState, useMemo } from "react"
-import { Card } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { useState, useMemo } from "react";
+import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 interface BMIResult {
-  bmi: number
-  category: string
-  categoryColor: string
+  bmi: number;
+  category: string;
+  categoryColor: string;
 }
 
 export function BMICalculator() {
-  const [height, setHeight] = useState<string>("")
-  const [weight, setWeight] = useState<string>("")
+  const [height, setHeight] = useState<string>("");
+  const [weight, setWeight] = useState<string>("");
 
   const result: BMIResult | null = useMemo(() => {
-    const h = Number.parseFloat(height)
-    const w = Number.parseFloat(weight)
+    const h = Number.parseFloat(height);
+    const w = Number.parseFloat(weight);
 
-    if (!h || !w || h <= 0 || w <= 0) return null
+    if (!h || !w || h <= 0 || w <= 0) return null;
 
     // Convert height from cm to meters
-    const heightInMeters = h / 100
-    const bmi = w / (heightInMeters * heightInMeters)
+    const heightInMeters = h / 100;
+    const bmi = w / (heightInMeters * heightInMeters);
 
-    let category = ""
-    let categoryColor = ""
+    let category = "";
+    let categoryColor = "";
 
     if (bmi < 18.5) {
-      category = "Kurus"
-      categoryColor = "text-blue-500"
+      category = "Kurus";
+      categoryColor = "text-yellow-900";
     } else if (bmi < 25) {
-      category = "Normal"
-      categoryColor = "text-green-500"
+      category = "Normal";
+      categoryColor = "text-green-500";
     } else if (bmi < 30) {
-      category = "Gemuk"
-      categoryColor = "text-yellow-500"
+      category = "Gemuk";
+      categoryColor = "text-yellow-500";
     } else {
-      category = "Obesitas"
-      categoryColor = "text-red-500"
+      category = "Obesitas";
+      categoryColor = "text-red-500";
     }
 
     return {
       bmi: Math.round(bmi * 10) / 10,
       category,
       categoryColor,
-    }
-  }, [height, weight])
+    };
+  }, [height, weight]);
 
   return (
     <div className="w-full max-w-md">
@@ -55,7 +55,7 @@ export function BMICalculator() {
         {/* Header */}
         <div className="mb-8 text-center">
           <h1 className="text-4xl font-bold text-foreground mb-2">BMI Calculator</h1>
-          <p className="text-muted-foreground text-sm">Hitung indeks massa tubuh Anda dengan mudah</p>
+          <p className="text-muted-foreground text-sm">Hitung BMI Anda dengan mudah dan cepat</p>
         </div>
 
         {/* Input Section */}
@@ -65,14 +65,7 @@ export function BMICalculator() {
             <Label htmlFor="height" className="text-sm font-medium">
               Tinggi Badan (cm)
             </Label>
-            <Input
-              id="height"
-              type="number"
-              placeholder="Masukkan tinggi badan Anda"
-              value={height}
-              onChange={(e) => setHeight(e.target.value)}
-              className="h-12 text-base border-2 border-border focus:border-primary transition-colors"
-            />
+            <Input id="height" type="number" placeholder="Masukkan tinggi badan Anda" value={height} onChange={(e) => setHeight(e.target.value)} className="h-12 text-base border-2 border-border focus:border-primary transition-colors" />
           </div>
 
           {/* Weight Input */}
@@ -80,14 +73,7 @@ export function BMICalculator() {
             <Label htmlFor="weight" className="text-sm font-medium">
               Berat Badan (kg)
             </Label>
-            <Input
-              id="weight"
-              type="number"
-              placeholder="Masukkan berat badan Anda"
-              value={weight}
-              onChange={(e) => setWeight(e.target.value)}
-              className="h-12 text-base border-2 border-border focus:border-primary transition-colors"
-            />
+            <Input id="weight" type="number" placeholder="Masukkan berat badan Anda" value={weight} onChange={(e) => setWeight(e.target.value)} className="h-12 text-base border-2 border-border focus:border-primary transition-colors" />
           </div>
         </div>
 
@@ -132,9 +118,7 @@ export function BMICalculator() {
       </Card>
 
       {/* Footer */}
-      <p className="text-center text-xs text-muted-foreground mt-6">
-        Hasil ini hanya untuk referensi. Konsultasikan dengan dokter untuk informasi kesehatan yang akurat.
-      </p>
+      <p className="text-center text-xs text-muted-foreground mt-6">Hasil ini hanya untuk referensi. Konsultasikan dengan dokter untuk informasi kesehatan yang akurat.</p>
     </div>
-  )
+  );
 }
