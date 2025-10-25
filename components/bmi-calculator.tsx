@@ -50,7 +50,7 @@ export function BMICalculator() {
   }, [height, weight])
 
   return (
-    <div className="w-full max-w-md">
+    <div className="w-full">
       <Card className="p-8 shadow-lg border-0">
         {/* Header */}
         <div className="mb-8 text-center">
@@ -108,7 +108,7 @@ export function BMICalculator() {
             <div className="pt-4 border-t border-border text-left space-y-2 text-xs text-muted-foreground">
               <div className="flex justify-between">
                 <span>Kurus:</span>
-                <span>&lt; 18.5</span>
+                <span>{"< 18.5"}</span>
               </div>
               <div className="flex justify-between">
                 <span>Normal:</span>
