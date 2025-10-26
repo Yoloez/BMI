@@ -50,11 +50,11 @@ export function BMICalculator() {
   }, [height, weight]);
 
   return (
-    <div className="w-full max-w-md">
+    <div className="w-full">
       <Card className="p-8 shadow-lg border-0">
         {/* Header */}
         <div className="mb-8 text-center">
-          <h1 className="text-4xl font-bold text-foreground mb-2">BMI Calculator</h1>
+          <h1 className="text-4xl font-bold text-foreground mb-2">Kalkulator BMI</h1>
           <p className="text-muted-foreground text-sm">Hitung BMI Anda dengan mudah dan cepat</p>
         </div>
 
@@ -94,7 +94,7 @@ export function BMICalculator() {
             <div className="pt-4 border-t border-border text-left space-y-2 text-xs text-muted-foreground">
               <div className="flex justify-between">
                 <span>Kurus:</span>
-                <span>&lt; 18.5</span>
+                <span>{"< 18.5"}</span>
               </div>
               <div className="flex justify-between">
                 <span>Normal:</span>
@@ -118,7 +118,7 @@ export function BMICalculator() {
       </Card>
 
       {/* Footer */}
-      <p className="text-center text-xs text-muted-foreground mt-6">Hasil ini hanya untuk referensi. Konsultasikan dengan dokter untuk informasi kesehatan yang akurat.</p>
+      <p className="text-center text-xs text-white mt-6">Hasil ini hanya untuk referensi. Konsultasikan dengan dokter untuk informasi kesehatan yang akurat.</p>
     </div>
   );
 }
