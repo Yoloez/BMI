@@ -9,7 +9,7 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "BMR & BMI Calculator",
   description: "Body Calculator for your healthy by Hanan",
-  generator: "v0.app",
+  generator: "BMI & BMR Calculator",
 };
 
 export default function RootLayout({
